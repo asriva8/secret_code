@@ -11,6 +11,7 @@ Secret_Code::Secret_Code()
     std::cout<<"Enter the secret code for each alphabet from a-z\n";
     for (int i=0; i<26; i++)
     {
+        std::cout<<"Enter code for "<<(char)(97+i)<<"\n";
         getline(std::cin, str);
         code.push_back(str);
     }
@@ -42,13 +43,10 @@ void Secret_Code::encrypt_words()
         for (int j=0; j<original_words[i].size(); j++)
         {
             int ASCII = (int) original_words[i][j];
-            std::cout<<"ASCII of "<<original_words[i][j]<<" is "<<ASCII<<"\n";
             int index = ASCII-97;   //97 is the ASCII code of 'a'. index for the secret code of 'a' is 0 in 'code' string.
 
             for (int k=0; k<code[index].size(); k++)
             {
-                std::cout<<"checkpoint 2\n";
-                std::cout<<code[index]<<"\n";
                 str.push_back(code[index][k]);
 
             }
