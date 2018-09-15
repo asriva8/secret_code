@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<vector>
 #include<string>
+#include<iomanip>
 
 
 Secret_Code::Secret_Code()
@@ -55,6 +56,6 @@ void Secret_Code::encrypt_words()
     }
     for (int i=0; i< original_words.size(); i++)
     {
-        std::cout<<original_words[i]<<"     "<<encrypted_words[i]<<"\n";
+        std::cout<<std::setw(20)<<std::left<<original_words[i]<<std::setw(10)<<std::left<<encrypted_words[i]<<"\n";
     }
 }
