@@ -58,4 +58,28 @@ void Secret_Code::encrypt_words()
     {
         std::cout<<std::setw(20)<<std::left<<original_words[i]<<std::setw(10)<<std::left<<encrypted_words[i]<<"\n";
     }
+
+    std::vector<int> counting_array;
+    int count = 0;
+    for (int i=0; i<original_words.size(); i++)
+    {
+        counting_array.push_back(0);
+    }
+
+    for (int i=0; i<original_words.size(); i++)
+    {
+        if(counting_array[i]==0)
+        {
+            count++;
+
+            for (int j=i; j<original_words.size(); j++)
+            {
+                if(counting_array[i]==counting_array[j])
+                {
+                    counting_array[j]=count;
+                }
+            }
+        }
+    }
+    std::cout<<"Number of unique secret codes are "<<count<<std::endl;
 }
